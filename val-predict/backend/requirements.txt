@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+requests
+scikit-learn
+pandas
+supabase
+apscheduler
+python-dotenv

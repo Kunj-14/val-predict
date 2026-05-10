@@ -1,0 +1,134 @@
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0;
+  height: 80px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo h1 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.nav-tagline {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  border-left: 1px solid var(--border-color);
+  padding-left: 16px;
+  margin-top: 4px;
+}
+
+.navbar-center {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 40px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+
+.search-bar:focus-within {
+  border-color: var(--valo-red);
+  box-shadow: 0 0 0 2px rgba(255, 70, 85, 0.2);
+}
+
+.search-icon {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-right: 12px;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.search-bar input::placeholder {
+  color: var(--text-secondary);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-btn {
+  position: relative;
+  font-size: 20px;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.icon-btn:hover {
+  color: var(--text-primary);
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--valo-red);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-icon img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.profile-icon img:hover {
+  border-color: var(--accent-purple);
+}
+
+@media (max-width: 768px) {
+  .nav-tagline, .navbar-center {
+    display: none;
+  }
+}

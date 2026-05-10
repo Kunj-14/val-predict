@@ -1,0 +1,175 @@
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel-section {
+  padding: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.live-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--valo-red);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--valo-red);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.tournament-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tournament-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.tournament-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-color);
+}
+
+.tourney-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tourney-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.tourney-info h4 {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.tourney-info p {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.highlight-section {
+  background: linear-gradient(180deg, rgba(32, 35, 42, 0.8) 0%, rgba(26, 29, 35, 1) 100%);
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid var(--valo-red);
+}
+
+.potd-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.potd-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.potd-t {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-secondary);
+}
+
+.potd-t img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.potd-vs {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--border-color);
+}
+
+.winner-text {
+  color: var(--valo-red);
+}
+
+.potd-win-prob {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.prob-large {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.prob-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.potd-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.potd-btn {
+  margin-top: 8px;
+}
