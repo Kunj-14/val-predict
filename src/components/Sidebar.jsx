@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, closeMobileMenu }) => {
   const navItems = [
     { name: 'Home', icon: '⌂', id: '/' },
     { name: 'Live Matches', icon: '🔴', id: '/live' },
@@ -15,12 +15,16 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="sidebar glass-panel">
+    <aside className={`sidebar glass-panel ${isOpen ? 'open' : ''}`}>
       <nav className="sidebar-nav">
         <ul>
           {navItems.map((item, index) => (
             <li key={item.id} className="nav-item">
-              <NavLink to={item.id} className={({ isActive }) => (isActive ? 'active' : '')}>
+              <NavLink 
+                to={item.id} 
+                className={({ isActive }) => (isActive ? 'active' : '')}
+                onClick={closeMobileMenu}
+              >
                 <span className="icon">{item.icon}</span>
                 {item.name}
               </NavLink>

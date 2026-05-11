@@ -301,3 +301,41 @@
   color: #00cc66;
   font-weight: 700;
 }
+
+@media (max-width: 768px) {
+  .md-header {
+    padding: 16px;
+  }
+  .md-teams {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .md-team, .md-team-right {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .md-team img {
+    margin-bottom: 8px;
+  }
+  .md-vs-center {
+    padding: 20px 0;
+  }
+  .md-stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .verification-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .form-comparison {
+    gap: 24px;
+  }
+  .team-form {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

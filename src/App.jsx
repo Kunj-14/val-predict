@@ -11,6 +11,10 @@ import { getUpcomingMatches, getTournaments } from './api';
 function App() {
   const [tournaments, setTournaments] = useState([]);
   const [potdMatch, setPotdMatch] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   // We fetch POTD and Tournaments once at the App level to persist in RightPanel
   useEffect(() => {
@@ -34,8 +38,9 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <Navbar />
-        <Sidebar />
+        <Navbar toggleMobileMenu={toggleMobileMenu} />
+        {isMobileMenuOpen && <div className="mobile-overlay" onClick={closeMobileMenu}></div>}
+        <Sidebar isOpen={isMobileMenuOpen} closeMobileMenu={closeMobileMenu} />
         
         <main className="main-content">
           <Routes>

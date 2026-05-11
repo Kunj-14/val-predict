@@ -11,6 +11,12 @@
   height: 80px;
 }
 
+.mobile-menu-btn {
+  display: none;
+  font-size: 24px;
+  margin-right: 12px;
+}
+
 .navbar-left {
   display: flex;
   align-items: center;
@@ -130,5 +136,8 @@
 @media (max-width: 768px) {
   .nav-tagline, .navbar-center {
     display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
   }
 }
