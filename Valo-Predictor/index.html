@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALPREDICT // VCT Analytics & Predictions</title>
+  
+  <!-- Google Fonts: Barlow & Barlow Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="main-navbar">
+    <a class="logo-container" href="#home" onclick="switchTab('home')">
+      <span class="val">VAL</span><span class="predict">PREDICT</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#home" class="nav-link active" onclick="switchTab('home')">HOME</a>
+      <a href="#knockouts" class="nav-link" onclick="switchTab('knockouts')">KNOCKOUTS</a>
+      <a href="#standings" class="nav-link" onclick="switchTab('standings')">STANDINGS</a>
+      <a href="#schedule" class="nav-link" onclick="switchTab('schedule')">SCHEDULE</a>
+      <a href="#results" class="nav-link" onclick="switchTab('results')">RESULTS</a>
+    </nav>
+  </header>
+
+  <!-- Full-Width Content Area -->
+  <main class="content-area">
+
+    <!-- ================= HOME PAGE ================= -->
+    <section id="home-view" class="view-section active">
+      <!-- Cinematic Featured Match Hero (280px) -->
+      <div id="featured-hero" class="hero-section">
+        <!-- Loaded dynamically via app.js -->
+        <div style="width: 100%; text-align: center; color: var(--color-text-dim);">Loading featured matchup...</div>
+      </div>
+
+      <!-- Filters Pill Row -->
+      <div class="filters-row">
+        <button class="btn-pill active" onclick="filterHomeMatches('all', this)">ALL</button>
+        <button class="btn-pill" onclick="filterHomeMatches('VCT Americas', this)">AMERICAS</button>
+        <button class="btn-pill" onclick="filterHomeMatches('VCT Pacific', this)">PACIFIC</button>
+        <button class="btn-pill" onclick="filterHomeMatches('VCT EMEA', this)">EMEA</button>
+        <button class="btn-pill" onclick="filterHomeMatches('VCT China', this)">CN</button>
+        <button class="btn-pill" onclick="filterHomeMatches('Masters', this)">MASTERS</button>
+        <button class="btn-pill" onclick="filterHomeMatches('Champions', this)">CHAMPIONS</button>
+      </div>
+
+      <!-- Live Now Section -->
+      <div id="live-matches-section" style="margin-bottom: 40px; display: none;">
+        <div class="section-header">
+          <h2 class="section-title"><span class="live-indicator"><span class="live-dot"></span>LIVE</span> LIVE NOW</h2>
+        </div>
+        <div id="live-matches-grid" class="matches-grid">
+          <!-- Loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Upcoming Matches Section -->
+      <div id="upcoming-matches-section">
+        <div class="section-header">
+          <h2 class="section-title"><i data-lucide="calendar"></i> UPCOMING MATCHES</h2>
+        </div>
+        <div id="upcoming-matches-grid" class="matches-grid">
+          <!-- Loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KNOCKOUTS PAGE ================= -->
+    <section id="knockouts-view" class="view-section">
+      <!-- Region Sub-Navbar -->
+      <div class="secondary-nav">
+        <button class="sec-tab active americas" onclick="switchKnockoutsRegion('VCT Americas', this)">AMERICAS</button>
+        <button class="sec-tab pacific" onclick="switchKnockoutsRegion('VCT Pacific', this)">PACIFIC</button>
+        <button class="sec-tab emea" onclick="switchKnockoutsRegion('VCT EMEA', this)">EMEA</button>
+        <button class="sec-tab cn" onclick="switchKnockoutsRegion('VCT China', this)">CN</button>
+        <button class="sec-tab masters" onclick="switchKnockoutsRegion('Masters', this)">MASTERS</button>
+        <button class="sec-tab champions" onclick="switchKnockoutsRegion('Champions', this)">CHAMPIONS</button>
+      </div>
+
+      <!-- Bracket Tree Visualization -->
+      <div id="bracket-visualization" class="bracket-wrapper">
+        <!-- Loaded dynamically -->
+      </div>
+    </section>
+
+    <!-- ================= STANDINGS PAGE ================= -->
+    <section id="standings-view" class="view-section">
+      <div class="standings-grid">
+        <!-- VCT Americas Box -->
+        <div class="region-box americas" id="standings-americas">
+          <div class="region-title-container">
+            <h2 class="region-title">VCT AMERICAS</h2>
+          </div>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="sr-header">SR</th>
+                <th>TEAM</th>
+                <th class="center">W</th>
+                <th class="center">L</th>
+                <th class="right">PTS</th>
+              </tr>
+            </thead>
+            <tbody class="standings-tbody" id="tbody-americas">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- VCT Pacific Box -->
+        <div class="region-box pacific" id="standings-pacific">
+          <div class="region-title-container">
+            <h2 class="region-title">VCT PACIFIC</h2>
+          </div>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="sr-header">SR</th>
+                <th>TEAM</th>
+                <th class="center">W</th>
+                <th class="center">L</th>
+                <th class="right">PTS</th>
+              </tr>
+            </thead>
+            <tbody class="standings-tbody" id="tbody-pacific">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- VCT EMEA Box -->
+        <div class="region-box emea" id="standings-emea">
+          <div class="region-title-container">
+            <h2 class="region-title">VCT EMEA</h2>
+          </div>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="sr-header">SR</th>
+                <th>TEAM</th>
+                <th class="center">W</th>
+                <th class="center">L</th>
+                <th class="right">PTS</th>
+              </tr>
+            </thead>
+            <tbody class="standings-tbody" id="tbody-emea">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- VCT China Box -->
+        <div class="region-box cn" id="standings-cn">
+          <div class="region-title-container">
+            <h2 class="region-title">VCT CN</h2>
+          </div>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="sr-header">SR</th>
+                <th>TEAM</th>
+                <th class="center">W</th>
+                <th class="center">L</th>
+                <th class="right">PTS</th>
+              </tr>
+            </thead>
+            <tbody class="standings-tbody" id="tbody-cn">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCHEDULE PAGE ================= -->
+    <section id="schedule-view" class="view-section">
+      <div id="schedule-container">
+        <!-- Grouped by Date dynamic list -->
+        <div style="text-align: center; color: var(--color-text-dim);">Loading schedule...</div>
+      </div>
+    </section>
+
+    <!-- ================= RESULTS PAGE ================= -->
+    <section id="results-view" class="view-section">
+      <div id="results-container">
+        <!-- Grouped by Date completed list -->
+        <div style="text-align: center; color: var(--color-text-dim);">Loading results...</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Prediction Details Modal Overlay -->
+  <div id="prediction-modal" class="modal-overlay" onclick="closePredictionModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closePredictionModal(event)">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="modal-content">
+        <!-- Dynamically loaded analytics -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Client JavaScript Application -->
+  <script src="app.js"></script>
+</body>
+</html>
